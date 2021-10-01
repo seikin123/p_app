@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" id="logo" href="/">ToDoapp</a>
+    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse justify-content-center" id="navbar1">
+      <% if user_signed_in? %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to " 練習", root_path, class:"nav-link active sample fas fa-desktop" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to " 新規登録", new_user_registration_path, class:"nav-link active sample fas fa-user-plus" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to " ログイン", new_user_session_path, class:"nav-link active sample fas fa-sign-out-alt animated-hover" %>
+        </li>
+    <% end %>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <h5 class="login_name">ようこそ! <%= current_user.name %>さん</h5>
+        </li>
+        <li class="nav-item">
+          <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"btn-outline-info disabled fas fa-sign-out-alt" %>
+        </li>
+      <% end%>
+</div>
+</ul>
+
+  </nav>
+</header>
