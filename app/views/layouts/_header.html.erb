@@ -4,6 +4,12 @@
     <ul class="navbar-nav mr-auto">
   <div class="collapse navbar-collapse justify-content-center" id="navbar1">
       <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to " マイページ", root_path, class:"nav-link active sample fas fa-desktop" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to " リスト作成", root_path, class:"nav-link active sample fas fa-user-plus" %>
+        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to " 練習", root_path, class:"nav-link active sample fas fa-desktop" %>
@@ -17,7 +23,7 @@
     <% end %>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <h5 class="login_name">ようこそ! <%= current_user.name %>さん</h5>
+          <h5>ようこそ! <%= current_user.name %>さん</h5>
         </li>
         <li class="nav-item">
           <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"btn-outline-info disabled fas fa-sign-out-alt" %>
